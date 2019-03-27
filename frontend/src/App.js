@@ -66,33 +66,32 @@ class App extends Component {
     //       })
     //
     //     })
-    console.log("THIS IS DEF", this.state.definition);
   }
   handleChange = e => {
     this.setState({
       [e.target.id]: e.target.value
     });
+    console.log("length", this.state.userInput.length);
     console.log(this.state.userInput);
+    console.log(this.state.definition[this.state.userInput.length]);
     if (
       this.state.userInput[this.state.userInput.length - 1] ===
       this.state.definition[this.state.userInput.length - 1]
     ) {
-      console.log("wooaahh");
       this.setState({
         error: "go on.."
       });
     } else {
-      console.log("try again", this.state.definition.length);
       this.setState({
         error: "u typed something wrong"
       });
     }
-    if (this.state.userInput.length - 1 === this.state.definition.length - 1) {
+
+    if (this.state.userInput.length === this.state.definition.length) {
       this.checkEqual();
     }
-
-    // (this.state.definition[this.state.userInput.length-1])
   };
+
   startButton = e => {
     this.setState({
       go: true
@@ -113,21 +112,8 @@ class App extends Component {
       });
     }
   };
-  arrayify = def => {
-    let out = def.split(" ");
-    console.log(out);
-  };
-  check = e => {
-    // if(e.keyCode === 32){
-    //     console.log("space has been clicked");
-    // }
-  };
 
   render() {
-    // console.log("this is userIn",this.state.userInput);
-    // console.log('this is userin length',this.state.userInput.length);
-    // console.log('this is userIn length at 1',this.state.userInput[1]);
-
     return (
       <div className="App">
         <h1>{this.state.word}</h1>
@@ -137,6 +123,7 @@ class App extends Component {
         {this.state.go ? (
           <input
             id="userInput"
+            autoComplete="off"
             onKeyDown={this.spaceCheck}
             onChange={this.handleChange}
             placeholder="Type the word definition here"
@@ -146,6 +133,7 @@ class App extends Component {
         ) : (
           <h1>Press Start To begin</h1>
         )}
+
         <h3>{this.state.error}</h3>
         <WordDisplay
           go={this.state.go}
