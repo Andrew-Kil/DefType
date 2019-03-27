@@ -66,7 +66,7 @@ class Gamer extends Component {
     });
     console.log("length", this.state.userInput.length);
     console.log(this.state.userInput);
-    console.log(this.state.definition[this.state.userInput.length]);
+    console.log(this.state.definition[this.state.userInput.length-1]);
     if (
       this.state.userInput[this.state.userInput.length - 1] ===
       this.state.definition[this.state.userInput.length - 1]
