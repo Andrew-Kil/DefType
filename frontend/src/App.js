@@ -72,6 +72,7 @@ class App extends Component {
     this.setState({
       [e.target.id]: e.target.value
     });
+    console.log(this.state.userInput);
     if (
       this.state.userInput[this.state.userInput.length - 1] ===
       this.state.definition[this.state.userInput.length - 1]
