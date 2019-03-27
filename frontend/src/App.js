@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/home';
 import Gamer from './components/gamer';
+import User from './components/username';
 
 // let headers = {
 //   "Accept": "application/json",
@@ -17,6 +18,7 @@ class App extends Component {
       <Switch>
         <Route exact path='/' component={Home}/>
         <Route exact path='/gamer' component={Gamer}/>
+        <Route exact path='/username' component={User}/>
       </Switch>
     )
   }
