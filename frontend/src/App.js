@@ -76,15 +76,18 @@ class App extends Component {
       })
 
     }else{
+
       this.setState({
         error:"u typed something wrong"
       })
     }
+
     if(this.state.userInput.length===this.state.definition.length){
       this.checkEqual()
     }
 
   }
+
   startButton = e => {
     this.setState({
       go:true
@@ -109,7 +112,11 @@ class App extends Component {
 
       })
     }
+
   }
+
+
+
 
 
   render() {
