@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 // import axios from 'axios'
-import WordDisplay from './WordDisplay'
+import WordDisplay from "./WordDisplay";
 
 // let headers = {
 //   "Accept": "application/json",
@@ -13,33 +13,32 @@ import WordDisplay from './WordDisplay'
 // then arrayInput is compared with definitionArray
 class App extends Component {
   state = {
-    word:'',
-    type:'',
-    example:'',
-    definition:'',
-    userInput:'',
-    go:false,
-    playerstate:2,
-    error:'go on..'
-
-  }
-  componentDidMount(){
+    word: "",
+    type: "",
+    example: "",
+    definition: "",
+    userInput: "",
+    go: false,
+    playerstate: 2,
+    error: "go on.."
+  };
+  componentDidMount() {
     this.setState({
       //ace
-      word:'ace',
+      word: "ace",
       // word:res.data.results[0].lexicalEntries[0].text,
 
       //NOUN
-      type:'noun',
+      type: "noun",
       // type:res.data.results[0].lexicalEntries[0].lexicalCategory,
-
 
       example: "life had started dealing him aces again",
       // example:res.data.results[0].lexicalEntries[0].entries[0].senses[0].examples[0].text,
 
-      definition:"a playing card with a single spot on it, ranked as the highest card in its suit in most card games example"
+      definition:
+        "a playing card with a single spot on it, ranked as the highest card in its suit in most card games example"
       // definition:res.data.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0],
-    })
+    });
     // axios
     //   .get('https://cors-anywhere.herokuapp.com/https://od-api.oxforddictionaries.com:443/api/v1/entries/en/ace',{ headers: {
     //     "Accept": "application/json",
@@ -84,41 +83,42 @@ class App extends Component {
       })
 
     }else{
+
       this.setState({
-        error:"u typed something wrong"
-      })
+        error: "u typed something wrong"
+      });
     }
+
     if(this.state.userInput.length===this.state.definition.length){
       this.checkEqual()
     }
 
 
   }
+
   startButton = e => {
     this.setState({
-      go:true
-    })
-
-  }
+      go: true
+    });
+  };
   checkEqual = () => {
-
-    if(this.state.userInput===this.state.definition){
+    if (this.state.userInput === this.state.definition) {
       this.setState({
-        playerState:1,
-
-      })
-    }else if(this.state.userInput!==this.state.definition){
+        playerState: 1
+      });
+    } else if (this.state.userInput !== this.state.definition) {
       this.setState({
-        playerState:0,
-
-      })
-    }else{
+        playerState: 0
+      });
+    } else {
       this.setState({
-        playerState:2,
-
-      })
+        playerState: 2
+      });
     }
+
   }
+
+
 
 
   render() {
@@ -132,9 +132,23 @@ class App extends Component {
         {this.state.go?
           <input  id='userInput'  autoComplete="off" onKeyDown={this.spaceCheck} onChange={this.handleChange} placeholder='Type the word definition here' value={this.state.userInput} type='text'/>:
           <h1>Press Start To begin</h1>}
+
         <h3>{this.state.error}</h3>
-        <WordDisplay go={this.state.go} word={this.state.word} userInput={this.state.userInput} type={this.state.type} definition={this.state.definition} example={this.state.example}/>
-        {this.state.playerState===1?<h1>You have won</h1>:this.state.playerState===0?<h1>You have lost</h1>:""}
+        <WordDisplay
+          go={this.state.go}
+          word={this.state.word}
+          userInput={this.state.userInput}
+          type={this.state.type}
+          definition={this.state.definition}
+          example={this.state.example}
+        />
+        {this.state.playerState === 1 ? (
+          <h1>You have won</h1>
+        ) : this.state.playerState === 0 ? (
+          <h1>You have lost</h1>
+        ) : (
+          ""
+        )}
       </div>
     );
   }
