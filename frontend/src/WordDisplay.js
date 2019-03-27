@@ -14,8 +14,8 @@ export default class WordDisplay extends Component {
 
 
       <h1 >{this.props.userInput}</h1>
-      <h3>definition</h3><p>{this.props.definition}</p>
-      <h3>example</h3><p>{this.props.example}</p>
+      <h3 id="definition">definition</h3><p>{this.props.definition}</p>
+      <h3 id="example">example</h3><p>{this.props.example}</p>
       </div>
     )
   }

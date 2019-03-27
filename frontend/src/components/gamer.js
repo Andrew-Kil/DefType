@@ -1,14 +1,8 @@
 import React, { Component } from "react";
 import WordDisplay from "../WordDisplay";
+import countdown from "../countdown"
 
-// let headers = {
-//   "Accept": "application/json",
-//   "app_id": "0296bd0a",
-//   "app_key": "5a0766a941eb5287bafeab007dc348c8"
-// }
 
-// type word then when space is pushed is added to array
-// then arrayInput is compared with definitionArray
 class Gamer extends Component{
     state = {
     word: "",
@@ -96,7 +90,8 @@ class Gamer extends Component{
 
   startButton = e => {
     this.setState({
-      go: true
+      go: true,
+
     });
   };
   checkEqual = () => {
@@ -124,9 +119,9 @@ class Gamer extends Component{
 
     return (
       <div className="App">
-        <h1>{this.state.word}</h1>
-        <p>{this.state.type}</p>
-        <button onClick={this.startButton}>Start</button><br/>
+        <h1 id="word">{this.state.word}</h1>
+        <p id="type">{this.state.type}</p>
+        <button onClick={this.startButton} id="start-button">Start</button><br/>
         {this.state.go?
           <input  id='userInput'  autoComplete="off" onKeyDown={this.spaceCheck} onChange={this.handleChange} placeholder='Type the word definition here' value={this.state.userInput} type='text'/>:
           <h1>Press Start To begin</h1>}
