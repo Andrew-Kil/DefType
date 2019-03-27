@@ -66,35 +66,31 @@ class App extends Component {
     //       })
     //
     //     })
-
   }
   handleChange = e => {
     this.setState({
-      [e.target.id]:e.target.value
-    })
-    console.log('length',this.state.userInput.length);
-    console.log(this.state.userInput)
-    console.log(this.state.definition[this.state.userInput.length]);;
-    if((this.state.userInput[this.state.userInput.length-1])===(this.state.definition[this.state.userInput.length-1])){
-
-
+      [e.target.id]: e.target.value
+    });
+    console.log("length", this.state.userInput.length);
+    console.log(this.state.userInput);
+    console.log(this.state.definition[this.state.userInput.length]);
+    if (
+      this.state.userInput[this.state.userInput.length - 1] ===
+      this.state.definition[this.state.userInput.length - 1]
+    ) {
       this.setState({
-        error:'go on..'
-      })
-
-    }else{
-
+        error: "go on.."
+      });
+    } else {
       this.setState({
         error: "u typed something wrong"
       });
     }
 
-    if(this.state.userInput.length===this.state.definition.length){
-      this.checkEqual()
+    if (this.state.userInput.length === this.state.definition.length) {
+      this.checkEqual();
     }
-
-
-  }
+  };
 
   startButton = e => {
     this.setState({
@@ -115,23 +111,28 @@ class App extends Component {
         playerState: 2
       });
     }
-
-  }
-
-
-
+  };
 
   render() {
-
-
     return (
       <div className="App">
         <h1>{this.state.word}</h1>
         <p>{this.state.type}</p>
-        <button onClick={this.startButton}>Start</button><br/>
-        {this.state.go?
-          <input  id='userInput'  autoComplete="off" onKeyDown={this.spaceCheck} onChange={this.handleChange} placeholder='Type the word definition here' value={this.state.userInput} type='text'/>:
-          <h1>Press Start To begin</h1>}
+        <button onClick={this.startButton}>Start</button>
+        <br />
+        {this.state.go ? (
+          <input
+            id="userInput"
+            autoComplete="off"
+            onKeyDown={this.spaceCheck}
+            onChange={this.handleChange}
+            placeholder="Type the word definition here"
+            value={this.state.userInput}
+            type="text"
+          />
+        ) : (
+          <h1>Press Start To begin</h1>
+        )}
 
         <h3>{this.state.error}</h3>
         <WordDisplay
