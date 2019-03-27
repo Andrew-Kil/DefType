@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import WordDisplay from "../WordDisplay";
+
 import Countdown from "./countdown";
+import WordDisplay from "./WordDisplay";
+
 
 class Gamer extends Component {
   state = {
