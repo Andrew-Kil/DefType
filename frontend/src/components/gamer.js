@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import WordDisplay from "../WordDisplay";
+
 import Countdown from "./countdown";
+import WordDisplay from "./WordDisplay";
+
 
 class Gamer extends Component {
   state = {
@@ -67,6 +69,7 @@ class Gamer extends Component {
     });
     console.log("length", this.state.userInput.length);
     console.log(this.state.userInput);
+
     console.log(this.state.definition[this.state.userInput.length]);
   };
 
