@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import WordDisplay from "../WordDisplay";
+import WordDisplay from "./WordDisplay";
 
 // let headers = {
 //   "Accept": "application/json",
