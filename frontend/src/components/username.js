@@ -5,7 +5,7 @@ class Home extends Component{
     render(){
         return(
             <div>
-                <div>
+                <div id='n'>
                     <Link to='/'>Home </Link>
                     <Link to='/gamer'> Game </Link>
                 </div>
@@ -14,9 +14,9 @@ class Home extends Component{
                 </div>
                 <br></br>
                 <br></br>
-                <form>
-                    <input type='text' placeholder='username'/>
-                    <button type='submit'>Submit</button>
+                <form id='user-form'>
+                    <input id='user-input'type='text' placeholder='username'/>
+                    <button id='user-input' type='submit'>Submit</button>
                 </form>
                 
                 <Link to='/gamer'>Start Game</Link>
