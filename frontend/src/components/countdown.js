@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class Countdown extends Component {
   state = {
-    count: 120,
+    count: 32,
     message: "",
     // textLength: this.props.textLength,
     start: false
@@ -35,8 +36,28 @@ export default class Countdown extends Component {
     console.log(this.props.textLength);
     return (
       <div>
-        <div className="timer">
-          <h1>{this.state.start ? this.state.count : "Press start"}</h1>
+        <div
+          className={
+            this.state.count >= 30
+              ? "timer1"
+              : this.state.count >= 20
+              ? "timer2"
+              : this.state.count >= 10
+              ? "timer3"
+              : "timer4"
+          }
+        >
+          <h1>
+            {this.state.start ? (
+              <span>
+                Time Left:
+                <br />
+                {this.state.count}
+              </span>
+            ) : (
+              "Press start"
+            )}
+          </h1>
           <div>
             {this.props.go ? null : (
               <button onClick={this.startTimer.bind(this)} id="start-button">
