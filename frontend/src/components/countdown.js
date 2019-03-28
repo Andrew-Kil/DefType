@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 
-export default class Countdown extends Component {
+class Countdown extends Component {
   state = {
-    count: 32,
+    count: 2,
     message: "",
     // textLength: this.props.textLength,
     start: false
@@ -16,9 +16,14 @@ export default class Countdown extends Component {
 
   tick() {
     this.setState({ count: this.state.count - 1 });
+    // console.log(this.props);
     if (this.state.count === 0) {
-      this.setState({ message: "Time's Up" });
-      clearInterval(this.timer);
+      //   this.setState({ message: "Time's Up" });
+      //   clearInterval(this.timer);
+      //   return <Redirect to="/" />;
+      this.props.gameo();
+      //   this.props.history.push("/gameover");
+      //   console.log(this.props);
     }
   }
 
@@ -44,7 +49,7 @@ export default class Countdown extends Component {
               ? "timer2"
               : this.state.count >= 10
               ? "timer3"
-              : "timer4"
+              : null
           }
         >
           <h1>
@@ -52,7 +57,7 @@ export default class Countdown extends Component {
               <span>
                 Time Left:
                 <br />
-                {this.state.count}
+                <span id="time-left">{this.state.count}</span>
               </span>
             ) : (
               "Press start"
@@ -71,3 +76,5 @@ export default class Countdown extends Component {
     );
   }
 }
+
+export default withRouter(Countdown);

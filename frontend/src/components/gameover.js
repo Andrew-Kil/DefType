@@ -8,14 +8,14 @@ class EndGame extends Component {
       hi: 0
     };
   }
+
   render() {
     let score = this.props;
     return (
       <div>
         <div id="congratulations">Congrats User!</div>
-        <div>Your score is:</div>
-        <div id="score">Put variable here</div>
-        <button>
+        <div>Your score is: {this.props.score}</div>
+        <button onClick={this.props.handleNewGame}>
           <Link to="/gamer">Play again?</Link>
         </button>
         Or
