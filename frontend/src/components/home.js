@@ -13,8 +13,18 @@ class Home extends Component{
         }
     }
     render(){
-        let gifs = this.state.gifs[Math.floor(Math.random() * 10)];
-        console.log(gifs);
+        let gifs = this.state.gifs;
+        let a = Math.floor(Math.random() * 10);
+        let b = Math.floor(Math.random() * 9);
+        let c = Math.floor(Math.random() * 8);
+        let first = gifs[a];
+        
+
+        gifs.splice(a, 1);
+        let second = gifs[b];
+        
+        gifs.splice(b,1)
+        let third = gifs[c];
 
         return(
             <div>
@@ -28,7 +38,9 @@ class Home extends Component{
                 </p>
                 <br></br>
                 <div>
-                    <img alt='' src={gifs}/>
+                    <img alt='' src={first}/>
+                    <img alt='' src={second}/>
+                    <img alt='' src={third}/>
                 </div>
                 <p>
                     Are you ready?
