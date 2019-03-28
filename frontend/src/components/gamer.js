@@ -125,13 +125,13 @@ class Gamer extends Component {
     console.log(this.state.definition.length);
     return (
       <div className="App">
-
         <Link to="/">Back</Link>
 
         <Countdown
           startbutton={this.startButton}
           handleChange={this.handleChange}
           textLength={this.state.definition.length}
+          playerState={this.state.playerstate}
         />
 
         <h1 id="word">{this.state.word}</h1>
