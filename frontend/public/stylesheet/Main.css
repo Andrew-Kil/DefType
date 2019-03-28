@@ -14,7 +14,7 @@
   margin: 0px;
 }
 
-.timer1 {
+/* .timer {
   width: 250px;
   background-color: whitesmoke;
   padding: 10px;
@@ -23,44 +23,23 @@
   border: 1px solid darkblue;
   border-radius: 3px;
   margin-top: 5px;
+
+} */
+
+.timer1 {
+
   color: green;
 }
 
+
 .timer2 {
-  width: 250px;
-  background-color: whitesmoke;
-  padding: 10px;
-  margin-top: 15px;
-  margin: auto;
-  border: 1px solid darkblue;
-  border-radius: 3px;
-  margin-top: 5px;
-  color: yellow;
-}
 
-
-.timer3 {
-  width: 250px;
-  background-color: whitesmoke;
-  padding: 10px;
-  margin-top: 15px;
-  margin: auto;
-  border: 1px solid darkblue;
-  border-radius: 3px;
-  margin-top: 5px;
   color: orange;
 }
 
 
-.timer4 {
-  width: 250px;
-  background-color: whitesmoke;
-  padding: 10px;
-  margin-top: 15px;
-  margin: auto;
-  border: 1px solid darkblue;
-  border-radius: 3px;
-  margin-top: 5px;
+.timer3 {
+
   color: red;
 }
 
