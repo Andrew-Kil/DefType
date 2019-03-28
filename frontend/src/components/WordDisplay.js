@@ -1,8 +1,10 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
 export default class WordDisplay extends Component {
-  state = {};
-  render() {
+  state = {
+
+  }
+  render(){
     // console.log(this.props);
     // <h1>Word: </h1><p>{this.props.word}</p>
     return (
@@ -13,7 +15,8 @@ export default class WordDisplay extends Component {
         <p>{this.props.definition}</p>
         <h3 id="example">example</h3>
         <p>{this.props.example}</p>
+
       </div>
-    );
+    )
   }
 }
