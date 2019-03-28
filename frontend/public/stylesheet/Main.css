@@ -22,7 +22,7 @@
   border: 1px solid darkblue;
   border-radius: 3px;
   margin-top: 5px;
-  color: red
+  color: red;
 }
 
 .timer1 {
@@ -115,4 +115,15 @@ h1 {
   background-color: darkblue;
   color: white;
   margin-top: 15px;
+}
+
+#your-score,
+#your-score-number {
+  font-size: 30px;
+}
+
+#definition,
+#example {
+  text-decoration: underline;
+  font-weight: bold;
 }

@@ -14,7 +14,10 @@ class EndGame extends Component {
     return (
       <div className="App">
         <div id="congratulations">Congrats User!</div>
-        <div>Your score is: {this.props.score}</div>
+        <h1 id="your-score">Your score is:</h1>
+        <h3 id="your-score-number">{this.props.score}</h3>
+        <br />
+        <br />
         <button onClick={this.props.handleNewGame}>
           <Link to="/gamer">Play again?</Link>
         </button>
