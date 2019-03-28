@@ -172,9 +172,11 @@ class Gamer extends Component {
       if (!this.state.go) {
         return (
           <div className="App">
+           
             <Link to="/" id="back">
               Back
             </Link>
+          
 
             <Countdown
               gameo={this.gameo}

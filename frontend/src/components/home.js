@@ -34,6 +34,10 @@ class Home extends Component {
 
     return (
       <div>
+        <img
+          src="https://en.oxforddictionaries.com/assets/oup/logos/svg/powered-by-oxford-048858a6bc179f844e6bab729ad05ff0.svg"
+          alt="logo"
+        />
         <h1 style={{ fontSize: "50px" }}>Welcome to TypeMania</h1>
         <p>
           To the typing game that races your fingers against the clock. You're

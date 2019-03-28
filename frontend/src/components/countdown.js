@@ -40,7 +40,7 @@ class Countdown extends Component {
     console.log(this.state);
     console.log(this.props.textLength);
     return (
-      <div>
+      <div id="timeC">
         <div
           className={
             this.state.count >= 30
