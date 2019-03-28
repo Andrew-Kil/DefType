@@ -4,32 +4,6 @@ import Countdown from "./countdown";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-let words = [
-  "pursuit",
-  "knowledge",
-  "warrior",
-  "barbarian",
-  "enunciate",
-  "procrastinate",
-  "analyze",
-  "splice",
-  "dice",
-  "mice",
-  "pandemonium",
-  "nefarious",
-  "notorious",
-  "glorious",
-  "fiddle",
-  "suffering",
-  "syntax",
-  "anonymous",
-  "socialist"
-];
-
-let rand = words[Math.floor(Math.random() * words.length)];
-console.log(rand);
-console.log(words);
-
 class Gamer extends Component {
   state = {
     word: "",
@@ -58,6 +32,31 @@ class Gamer extends Component {
     //   // "a playing card with a single spot on it, ranked as the highest card in its suit in most card games example"
     //   // definition:res.data.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0],
     // });
+
+    let words = [
+      "pursuit",
+      "knowledge",
+      "warrior",
+      "barbarian",
+      "enunciate",
+      "procrastinate",
+      "analyze",
+      "splice",
+      "dice",
+      "mice",
+      "pandemonium",
+      "nefarious",
+      "notorious",
+      "glorious",
+      "fiddle",
+      "suffering",
+      "syntax",
+      "anonymous",
+      "socialist"
+    ];
+
+    let rand = words[Math.floor(Math.random() * words.length)];
+    console.log(rand);
 
     axios
       .get(
@@ -200,6 +199,8 @@ class Gamer extends Component {
           ) : (
             <h1>Press Start To begin</h1>
           )}
+          <br />
+          <button type="submit">Next Word</button>
 
           <h3>{this.state.error}</h3>
           <WordDisplay
