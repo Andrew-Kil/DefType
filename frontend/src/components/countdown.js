@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class Countdown extends Component {
   state = {
-    count: 60,
+    count: 120,
     message: "",
     // textLength: this.props.textLength,
     start: false

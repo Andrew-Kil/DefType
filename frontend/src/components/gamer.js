@@ -13,8 +13,10 @@ class Gamer extends Component {
     userInput: "",
     go: false,
     playerstate: 2,
-    error: "go on.."
+    error: "go on..",
+    score: 0
   };
+
   componentDidMount() {
     // this.setState({
     //   //ace
@@ -33,6 +35,10 @@ class Gamer extends Component {
     //   // definition:res.data.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0],
     // });
 
+    this.APIcall();
+  }
+
+  APIcall = () => {
     let words = [
       "pursuit",
       "knowledge",
@@ -42,17 +48,21 @@ class Gamer extends Component {
       "procrastinate",
       "analyze",
       "splice",
-      "dice",
-      "mice",
       "pandemonium",
       "nefarious",
       "notorious",
       "glorious",
-      "fiddle",
       "suffering",
       "syntax",
       "anonymous",
-      "socialist"
+      "socialist",
+      "absquatulate",
+      "dictionary",
+      "claggy",
+      "donkeyman",
+      "fankle",
+      "lollygag",
+      "rubricate"
     ];
 
     let rand = words[Math.floor(Math.random() * words.length)];
@@ -71,26 +81,21 @@ class Gamer extends Component {
       )
       .then(res => {
         this.setState({
-          //ace
           word: res.data.results[0].lexicalEntries[0].text,
 
-          //NOUN
-          // type: "noun",
           type: res.data.results[0].lexicalEntries[0].lexicalCategory,
 
-          // example: "life had started dealing him aces again",
           example:
             res.data.results[0].lexicalEntries[0].entries[0].senses[0]
               .examples[0].text,
 
-          // definition:
-          //   "a playing card with a single spot on it, ranked as the highest card in its suit in most card games example"
           definition:
             res.data.results[0].lexicalEntries[0].entries[0].senses[0]
               .definitions[0]
         });
       });
-  }
+  };
+
   handleChange = e => {
     this.setState({});
     // console.log('length',this.state.userInput.length);
@@ -200,7 +205,9 @@ class Gamer extends Component {
             <h1>Press Start To begin</h1>
           )}
           <br />
-          <button type="submit">Next Word</button>
+          <button type="submit" onClick={this.APIcall}>
+            Next Word
+          </button>
 
           <h3>{this.state.error}</h3>
           <WordDisplay
