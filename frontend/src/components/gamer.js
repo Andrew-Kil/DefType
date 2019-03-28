@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import WordDisplay from "../WordDisplay";
-import countdown from "../countdown"
+
+import Countdown from "./countdown";
+import WordDisplay from "./WordDisplay";
 
 
-class Gamer extends Component{
-    state = {
+class Gamer extends Component {
+  state = {
     word: "",
     type: "",
     example: "",
@@ -12,8 +13,10 @@ class Gamer extends Component{
     userInput: "",
     go: false,
     playerstate: 2,
-    error: "go on.."
+    error: "go on..",
+    points: 0
   };
+
   componentDidMount() {
     this.setState({
       //ace
@@ -58,42 +61,24 @@ class Gamer extends Component{
     //       })
     //
     //     })
-
   }
   handleChange = e => {
+    console.log(e);
     this.setState({
-      [e.target.id]:e.target.value
-    })
-    console.log('length',this.state.userInput.length);
-    console.log(this.state.userInput)
-    console.log(this.state.definition[this.state.userInput.length]);;
-    if((this.state.userInput[this.state.userInput.length-1])===(this.state.definition[this.state.userInput.length-1])){
+      [e.target.id]: e.target.value
+    });
+    console.log("length", this.state.userInput.length);
+    console.log(this.state.userInput);
 
-
-      this.setState({
-        error:'go on..'
-      })
-
-    }else{
-
-      this.setState({
-        error: "u typed something wrong"
-      });
-    }
-
-    if(this.state.userInput.length===this.state.definition.length){
-      this.checkEqual()
-    }
-
-
-  }
+    console.log(this.state.definition[this.state.userInput.length]);
+  };
 
   startButton = e => {
     this.setState({
-      go: true,
-
+      go: true
     });
   };
+
   checkEqual = () => {
     if (this.state.userInput === this.state.definition) {
       this.setState({
@@ -108,23 +93,62 @@ class Gamer extends Component{
         playerState: 2
       });
     }
+  };
 
-  }
+  handleKey = e => {
+    console.log(e.key);
 
+    if (e.key === "Backspace") {
+      this.setState({ points: this.state.points - 2 });
+    } else if (
+      this.state.userInput[this.state.userInput.length - 1] ===
+      this.state.definition[this.state.userInput.length - 1]
+    ) {
+      this.setState({
+        error: "go on..",
+        points: this.state.points + 2
+      });
+    } else {
+      this.setState({
+        error: "u typed something wrong",
+        points: this.state.points - 1
+      });
+    }
 
-
+    if (this.state.userInput.length === this.state.definition.length) {
+      this.checkEqual();
+    }
+  };
 
   render() {
-
-
     return (
       <div className="App">
+        <Countdown
+          startbutton={this.startButton}
+          handleChange={this.handleChange}
+          textLength={this.state.definition.length}
+        />
+        <h3>{this.state.points} point(s)</h3>
+
+        <button onClick={this.startButton} id="start-button">
+          Start Typing
+        </button>
+        <br />
         <h1 id="word">{this.state.word}</h1>
         <p id="type">{this.state.type}</p>
-        <button onClick={this.startButton} id="start-button">Start</button><br/>
-        {this.state.go?
-          <input  id='userInput'  autoComplete="off" onKeyDown={this.spaceCheck} onChange={this.handleChange} placeholder='Type the word definition here' value={this.state.userInput} type='text'/>:
-          <h1>Press Start To begin</h1>}
+        {this.state.go ? (
+          <input
+            id="userInput"
+            autoComplete="off"
+            onKeyDown={this.handleKey}
+            onChange={this.handleChange}
+            placeholder="Type the word definition here"
+            value={this.state.userInput}
+            type="text"
+          />
+        ) : (
+          <h1>Press Start To begin</h1>
+        )}
 
         <h3>{this.state.error}</h3>
         <WordDisplay
