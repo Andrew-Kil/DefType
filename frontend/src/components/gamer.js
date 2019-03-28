@@ -46,7 +46,6 @@ class Gamer extends Component {
       "barbarian",
       "enunciate",
       "procrastinate",
-      "analyze",
       "splice",
       "pandemonium",
       "nefarious",
@@ -117,6 +116,7 @@ class Gamer extends Component {
       }
     );
   };
+
   isEqual = () => {
     if (
       this.state.userInput[this.state.userInput.length - 1] ===
@@ -124,11 +124,13 @@ class Gamer extends Component {
     ) {
       this.checkEqual();
       this.setState({
-        error: "equal"
+        error: "equal",
+        score: this.state.score + 2
       });
     } else {
       this.setState({
-        error: "not equal"
+        error: "not equal",
+        score: this.state.score - 1
       });
 
       console.log("not");
@@ -140,6 +142,7 @@ class Gamer extends Component {
       go: true
     });
   };
+
   checkEqual = () => {
     if (this.state.userInput === this.state.definition) {
       this.setState({
@@ -188,6 +191,11 @@ class Gamer extends Component {
             go={this.state.go}
           />
 
+          <h1>
+            Score <br />
+            {this.state.score}
+          </h1>
+
           <h1 id="word">Word: {this.state.word}</h1>
           <p id="type">Lexical Category: {this.state.type}</p>
           <br />
@@ -204,7 +212,6 @@ class Gamer extends Component {
           ) : (
             <h1>Press Start To begin</h1>
           )}
-          <br />
           <button type="submit" onClick={this.APIcall}>
             Next Word
           </button>
