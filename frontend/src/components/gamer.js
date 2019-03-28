@@ -239,7 +239,7 @@ class Gamer extends Component {
             ) : (
               <h1>Press Start To begin</h1>
             )}
-            <button type="submit" onSubmit={this.nextWordPressed}>
+            <button type="submit" onClick={this.nextWordPressed}>
               Next Word
             </button>
 
