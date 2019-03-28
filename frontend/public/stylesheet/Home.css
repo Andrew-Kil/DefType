@@ -4,7 +4,7 @@ body {
 }
 
 body:hover {
-  background-color: #00BDF9;
+  background-image: radial-gradient(#00BDF9, white);
   transition: 1.5s;
 }
 
