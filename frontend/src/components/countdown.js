@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Redirect, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class Countdown extends Component {
   state = {
-    count: 2,
+    count: 32,
     message: "",
     // textLength: this.props.textLength,
     start: false
@@ -49,7 +49,7 @@ class Countdown extends Component {
               ? "timer2"
               : this.state.count >= 10
               ? "timer3"
-              : null
+              : "timer4"
           }
         >
           <h1>

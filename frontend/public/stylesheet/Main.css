@@ -1,20 +1,19 @@
 * {
   margin: 0px;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
 }
 
 .App {
-
-  background-image: linear-gradient(#00BDF9, white);
+  background-image: linear-gradient(#00bdf9, white);
   min-height: 100vh;
 }
-
 
 #root {
   margin: 0px;
 }
 
-/* .timer {
+.timer4 {
   width: 250px;
   background-color: whitesmoke;
   padding: 10px;
@@ -23,26 +22,44 @@
   border: 1px solid darkblue;
   border-radius: 3px;
   margin-top: 5px;
-
-} */
-
-.timer1 {
-
-  color: green;
+  color: red
 }
 
+.timer1 {
+  color: green;
+  width: 250px;
+  background-color: whitesmoke;
+  padding: 10px;
+  margin-top: 15px;
+  margin: auto;
+  border: 1px solid darkblue;
+  border-radius: 3px;
+  margin-top: 5px;
+}
 
 .timer2 {
-
+  width: 250px;
+  background-color: whitesmoke;
+  padding: 10px;
+  margin-top: 15px;
+  margin: auto;
+  border: 1px solid darkblue;
+  border-radius: 3px;
+  margin-top: 5px;
   color: orange;
 }
 
-
 .timer3 {
-
+  width: 250px;
+  background-color: whitesmoke;
+  padding: 10px;
+  margin-top: 15px;
+  margin: auto;
+  border: 1px solid darkblue;
+  border-radius: 3px;
+  margin-top: 5px;
   color: red;
 }
-
 
 #start-button {
   margin: 5px;
@@ -56,7 +73,7 @@
   transform: scale(2) rotate(360deg);
   background-color: lightblue;
   color: white;
-  transition: .5s;
+  transition: 0.5s;
   outline: none;
   border-radius: 5px;
 }
@@ -80,14 +97,12 @@ button {
   text-align: center;
   margin-right: 5px;
 
-  transition: all .7s ease-in-out;
+  transition: all 0.7s ease-in-out;
 }
-
 
 h1 {
-  font-family: 'Lobster', cursive;
+  font-family: "Lobster", cursive;
 }
-
 
 #userInput:focus {
   width: 500px;

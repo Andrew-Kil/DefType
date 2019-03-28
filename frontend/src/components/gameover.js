@@ -12,7 +12,7 @@ class EndGame extends Component {
   render() {
     let score = this.props;
     return (
-      <div>
+      <div className="App">
         <div id="congratulations">Congrats User!</div>
         <div>Your score is: {this.props.score}</div>
         <button onClick={this.props.handleNewGame}>
