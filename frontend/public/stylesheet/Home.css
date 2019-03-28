@@ -18,6 +18,7 @@ a {
     font-size: 25px;
     color: black;
     background-color: lightblue;
+    padding: 3px;
 }
 
 a:active {
