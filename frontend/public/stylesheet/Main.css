@@ -14,12 +14,54 @@
   margin: 0px;
 }
 
-.timer {
+.timer1 {
   width: 250px;
-  margin-left: 340px;
   background-color: whitesmoke;
   padding: 10px;
   margin-top: 15px;
+  margin: auto;
+  border: 1px solid darkblue;
+  border-radius: 3px;
+  margin-top: 5px;
+  color: green;
+}
+
+.timer2 {
+  width: 250px;
+  background-color: whitesmoke;
+  padding: 10px;
+  margin-top: 15px;
+  margin: auto;
+  border: 1px solid darkblue;
+  border-radius: 3px;
+  margin-top: 5px;
+  color: yellow;
+}
+
+
+.timer3 {
+  width: 250px;
+  background-color: whitesmoke;
+  padding: 10px;
+  margin-top: 15px;
+  margin: auto;
+  border: 1px solid darkblue;
+  border-radius: 3px;
+  margin-top: 5px;
+  color: orange;
+}
+
+
+.timer4 {
+  width: 250px;
+  background-color: whitesmoke;
+  padding: 10px;
+  margin-top: 15px;
+  margin: auto;
+  border: 1px solid darkblue;
+  border-radius: 3px;
+  margin-top: 5px;
+  color: red;
 }
 
 
@@ -28,6 +70,7 @@
   width: 60px;
   padding: 5px;
   outline: none;
+  border-radius: 3px;
 }
 
 #start-button:hover {
@@ -36,10 +79,12 @@
   color: white;
   transition: .5s;
   outline: none;
+  border-radius: 5px;
 }
 
 button {
-
+  outline: none;
+  border-radius: 3px;
 }
 
 .gamer-container {
@@ -54,6 +99,7 @@ button {
   border: 1px solid #032147;
   border-radius: 3px;
   text-align: center;
+  margin-right: 5px;
 
   transition: all .7s ease-in-out;
 }
@@ -67,4 +113,12 @@ h1 {
 #userInput:focus {
   width: 500px;
   height: 20px;
+}
+
+#user-input {
+  width: 80%;
+  margin: auto;
+  background-color: darkblue;
+  color: white;
+  margin-top: 15px;
 }
