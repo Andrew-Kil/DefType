@@ -1,0 +1,42 @@
+body {
+  background-color: white;
+  text-align: center;
+}
+
+body:hover {
+  background-color: #00BDF9;
+  transition: 1.5s;
+}
+
+img {
+  width: 250px;
+  height: 175px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    background-color: lightblue;
+}
+
+a:active {
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+  background-color: white;
+  transition: .5s;
+}
+
+#nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+}
+
+#home-title {
+  padding-top: 100px;
+  font-size: 45px;
+}
