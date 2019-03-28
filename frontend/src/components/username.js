@@ -14,11 +14,11 @@ class Home extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.setState({
-      name: e.target.value,
-      submitted: true,
-      message: this.state.message + this.state.name
-    });
+    // this.setState({
+    //   name: e.target.value,
+    //   submitted: true,
+    //   message: this.state.message + this.state.name
+    // });
   };
 
   render() {
