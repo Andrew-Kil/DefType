@@ -1,12 +1,11 @@
 #n {
-    background-color: white;
-    padding-top: 15px;
-    padding-bottom: 10px;
-    justify-content: space-around;
-    display: flex;
-    margin-bottom: 15px;
+  background-color: white;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  justify-content: space-around;
+  display: flex;
+  margin-bottom: 15px;
 }
-
 
 #user-form {
   background-color: lightgray;
@@ -19,5 +18,4 @@
 
 #user-input {
   padding: 5px;
-  margin-right: 10px;
 }

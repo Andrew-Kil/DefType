@@ -41,7 +41,7 @@ class Home extends Component{
                 <p>
                     Are you ready?
                 </p>
-                <Link to='/username'>Get Started</Link>
+                <Link to='/gamer'>Get Started</Link>
             </div>
         )
     }
