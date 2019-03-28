@@ -4,8 +4,9 @@ export default class Countdown extends Component {
   state = {
     count: 60,
     message: "",
-    textLength: this.props.textLength,
+    // textLength: this.props.textLength,
     start: false
+    // playerState: this.props.playerState
   };
 
   componentWillUnmount() {
@@ -37,7 +38,9 @@ export default class Countdown extends Component {
         <div className="timer">
           <h1>{this.state.start ? this.state.count : "Press start"}</h1>
           <div>
-            <button onClick={this.startTimer.bind(this)}>Start</button>
+            <button onClick={this.startTimer.bind(this)} id="start-button">
+              {this.props.go ? "Stop" : "Start"}
+            </button>
             <p>{this.state.message}</p>
           </div>
         </div>
