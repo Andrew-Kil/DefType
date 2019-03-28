@@ -13,7 +13,6 @@ class Gamer extends Component {
     userInput: "",
     go: false,
     playerstate: 2,
-    error: "go on..",
     score: 0
   };
 
@@ -46,7 +45,6 @@ class Gamer extends Component {
       "barbarian",
       "enunciate",
       "procrastinate",
-      "analyze",
       "splice",
       "pandemonium",
       "nefarious",
@@ -97,7 +95,6 @@ class Gamer extends Component {
   };
 
   handleChange = e => {
-    this.setState({});
     // console.log('length',this.state.userInput.length);
     if (this.state.userInput.length === this.state.definition.length) {
       this.setState({
@@ -117,21 +114,33 @@ class Gamer extends Component {
       }
     );
   };
+
+  handleKey = e => {
+    if (e.key === "Backspace") {
+      this.setState({
+        score: this.state.score < 4 ? 0 : this.state.score - 5
+      });
+    } else if (
+      this.state.userInput[this.state.userInput.length - 1] ===
+      this.state.definition[this.state.userInput.length - 1]
+    ) {
+      this.checkEqual();
+      this.setState({
+        score: this.state.score + 2
+      });
+    } else {
+      this.setState({
+        score: this.state.score === 0 ? 0 : this.state.score - 1
+      });
+    }
+  };
+
   isEqual = () => {
     if (
       this.state.userInput[this.state.userInput.length - 1] ===
       this.state.definition[this.state.userInput.length - 1]
     ) {
       this.checkEqual();
-      this.setState({
-        error: "equal"
-      });
-    } else {
-      this.setState({
-        error: "not equal"
-      });
-
-      console.log("not");
     }
   };
 
@@ -140,6 +149,7 @@ class Gamer extends Component {
       go: true
     });
   };
+
   checkEqual = () => {
     if (this.state.userInput === this.state.definition) {
       this.setState({
@@ -188,6 +198,12 @@ class Gamer extends Component {
             go={this.state.go}
           />
 
+          <h1>
+            {this.state.score}
+            <br />
+            point(s)
+          </h1>
+
           <h1 id="word">Word: {this.state.word}</h1>
           <p id="type">Lexical Category: {this.state.type}</p>
           <br />
@@ -195,7 +211,7 @@ class Gamer extends Component {
             <input
               id="userInput"
               autoComplete="off"
-              onKeyDown={this.spaceCheck}
+              onKeyDown={this.handleKey}
               onChange={this.handleChange}
               placeholder="Type the word definition here"
               value={this.state.userInput}
@@ -204,12 +220,10 @@ class Gamer extends Component {
           ) : (
             <h1>Press Start To begin</h1>
           )}
-          <br />
           <button type="submit" onClick={this.APIcall}>
             Next Word
           </button>
 
-          <h3>{this.state.error}</h3>
           <WordDisplay
             go={this.state.go}
             word={this.state.word}

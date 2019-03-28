@@ -16,7 +16,7 @@ export default class Countdown extends Component {
   tick() {
     this.setState({ count: this.state.count - 1 });
     if (this.state.count === 0) {
-      this.setState({ message: "You lose" });
+      this.setState({ message: "Time's Up" });
       clearInterval(this.timer);
     }
   }
@@ -38,9 +38,11 @@ export default class Countdown extends Component {
         <div className="timer">
           <h1>{this.state.start ? this.state.count : "Press start"}</h1>
           <div>
-            <button onClick={this.startTimer.bind(this)} id="start-button">
-              {this.props.go ? "Stop" : "Start"}
-            </button>
+            {this.props.go ? null : (
+              <button onClick={this.startTimer.bind(this)} id="start-button">
+                Start
+              </button>
+            )}
             <p>{this.state.message}</p>
           </div>
         </div>
