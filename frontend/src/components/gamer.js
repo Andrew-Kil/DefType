@@ -120,22 +120,24 @@ class Gamer extends Component {
   };
 
   render() {
-    // console.log('user',this.state.userInput[this.state.userInput.length-1])
-    // console.log('def',this.state.definition[this.state.userInput.length-1])
+    console.log(this.props);
     console.log(this.state.definition.length);
     return (
       <div className="App">
-        <Link to="/">Back</Link>
+        <Link to="/" id="back">
+          Back
+        </Link>
 
         <Countdown
           startbutton={this.startButton}
           handleChange={this.handleChange}
           textLength={this.state.definition.length}
           playerState={this.state.playerstate}
+          go={this.state.go}
         />
 
-        <h1 id="word">{this.state.word}</h1>
-        <p id="type">{this.state.type}</p>
+        <h1 id="word">Word: {this.state.word}</h1>
+        <p id="type">Type: {this.state.type}</p>
         <br />
         {this.state.go ? (
           <input

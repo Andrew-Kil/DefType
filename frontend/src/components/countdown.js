@@ -4,9 +4,9 @@ export default class Countdown extends Component {
   state = {
     count: 60,
     message: "",
-    textLength: this.props.textLength,
+    // textLength: this.props.textLength,
     start: false,
-    playerState: this.props.playerState
+    // playerState: this.props.playerState
   };
 
   componentWillUnmount() {
