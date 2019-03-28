@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import WordDisplay from "./WordDisplay";
 import Countdown from "./countdown";
+import { Link } from "react-router-dom";
 
 class Gamer extends Component {
   state = {
@@ -124,6 +125,9 @@ class Gamer extends Component {
     console.log(this.state.definition.length);
     return (
       <div className="App">
+
+        <Link to="/">Back</Link>
+
         <Countdown
           startbutton={this.startButton}
           handleChange={this.handleChange}

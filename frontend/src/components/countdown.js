@@ -2,9 +2,10 @@ import React, { Component } from "react";
 
 export default class Countdown extends Component {
   state = {
-    count: 3,
+    count: 60,
     message: "",
-    textLength: this.props.textLength
+    textLength: this.props.textLength,
+    start: false
   };
 
   componentWillUnmount() {
@@ -22,8 +23,10 @@ export default class Countdown extends Component {
   startTimer() {
     clearInterval(this.timer);
     this.timer = setInterval(this.tick.bind(this), 1000);
-
     this.props.startbutton();
+    this.setState({
+      start: true
+    });
   }
 
   render() {
@@ -32,7 +35,7 @@ export default class Countdown extends Component {
     return (
       <div>
         <div className="timer">
-          <h1>{this.state.count}</h1>
+          <h1>{this.state.start ? this.state.count : "Press start"}</h1>
           <div>
             <button onClick={this.startTimer.bind(this)}>Start</button>
             <p>{this.state.message}</p>
