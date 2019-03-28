@@ -34,7 +34,7 @@ export default class Countdown extends Component {
         <div className="timer">
           <h1>{this.state.count}</h1>
           <div>
-            <button onClick={this.startTimer.bind(this)}>Countdown</button>
+            <button onClick={this.startTimer.bind(this)}>Start</button>
             <p>{this.state.message}</p>
           </div>
         </div>
