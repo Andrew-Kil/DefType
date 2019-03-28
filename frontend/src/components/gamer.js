@@ -17,23 +17,6 @@ class Gamer extends Component {
   };
 
   componentDidMount() {
-    // this.setState({
-    //   //ace
-    //   word: "ace",
-    //   // word:res.data.results[0].lexicalEntries[0].text,
-
-    //   //NOUN
-    //   type: "noun",
-    //   // type:res.data.results[0].lexicalEntries[0].lexicalCategory,
-
-    //   example: "life had started dealing him aces again",
-    //   // example:res.data.results[0].lexicalEntries[0].entries[0].senses[0].examples[0].text,
-
-    //   definition: "this is a test"
-    //   // "a playing card with a single spot on it, ranked as the highest card in its suit in most card games example"
-    //   // definition:res.data.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0],
-    // });
-
     this.APIcall();
   }
 
@@ -95,15 +78,11 @@ class Gamer extends Component {
   };
 
   handleChange = e => {
-    // console.log('length',this.state.userInput.length);
     if (this.state.userInput.length === this.state.definition.length) {
       this.setState({
         [e.target.id]: e.target.value
       });
     }
-    // console.log(this.state.definition[this.state.userInput.length]);;
-    // console.log('user',this.state.userInput[this.state.userInput.length-1])
-    // console.log('def',this.state.definition[this.state.userInput.length-1])
 
     this.setState(
       {
@@ -166,6 +145,13 @@ class Gamer extends Component {
     }
   };
 
+  nextWordPressed = () => {
+    this.APIcall();
+    this.setState({
+      userInput: ""
+    });
+  };
+
   render() {
     if (!this.state.go) {
       return (
@@ -207,6 +193,16 @@ class Gamer extends Component {
           <h1 id="word">Word: {this.state.word}</h1>
           <p id="type">Lexical Category: {this.state.type}</p>
           <br />
+
+          <WordDisplay
+            go={this.state.go}
+            word={this.state.word}
+            userInput={this.state.userInput}
+            type={this.state.type}
+            definition={this.state.definition}
+            example={this.state.example}
+          />
+
           {this.state.go ? (
             <input
               id="userInput"
@@ -220,18 +216,10 @@ class Gamer extends Component {
           ) : (
             <h1>Press Start To begin</h1>
           )}
-          <button type="submit" onClick={this.APIcall}>
+          <button type="submit" onSubmit={this.nextWordPressed}>
             Next Word
           </button>
 
-          <WordDisplay
-            go={this.state.go}
-            word={this.state.word}
-            userInput={this.state.userInput}
-            type={this.state.type}
-            definition={this.state.definition}
-            example={this.state.example}
-          />
           {this.state.playerState === 1 ? (
             <h1>You have won</h1>
           ) : this.state.playerState === 0 ? null : (
