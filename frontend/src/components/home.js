@@ -28,11 +28,7 @@ class Home extends Component{
 
         return(
             <div>
-                <div id='nav'>
-                    <Link to='/gamer'> Game </Link>
-                    <Link to='/username'> Username </Link>
-                </div>
-                <h1>Welcome</h1>
+                <h1>Welcome to TypeMania</h1>
                 <p>
                     To the typing game that races your fingers against the clock. You're going to have to be SUPER to get a high score.
                 </p>
