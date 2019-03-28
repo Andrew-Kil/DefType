@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import WordDisplay from "./WordDisplay";
 import Countdown from "./countdown";
-import { Link } from "react-router-dom";
+import EndGame from "./gameover";
+import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
 
 class Gamer extends Component {
@@ -13,7 +14,8 @@ class Gamer extends Component {
     userInput: "",
     go: false,
     playerstate: 2,
-    score: 0
+    score: 0,
+    gameover: false
   };
 
   componentDidMount() {
@@ -152,83 +154,109 @@ class Gamer extends Component {
     });
   };
 
-  render() {
-    if (!this.state.go) {
-      return (
-        <div className="App">
-          <Link to="/" id="back">
-            Back
-          </Link>
+  gameo = () => {
+    this.setState({
+      gameover: true
+    });
+  };
 
-          <Countdown
-            startbutton={this.startButton}
-            handleChange={this.handleChange}
-            textLength={this.state.definition.length}
-            playerState={this.state.playerstate}
-            go={this.state.go}
-          />
-        </div>
-      );
+  handleNewGame = () => {
+    this.setState({
+      gameover: false
+    });
+  };
+
+  render() {
+    console.log(this.props);
+    if (!this.state.gameover) {
+      if (!this.state.go) {
+        return (
+          <div className="App">
+            <Link to="/" id="back">
+              Back
+            </Link>
+
+            <Countdown
+              gameo={this.gameo}
+              startbutton={this.startButton}
+              handleChange={this.handleChange}
+              textLength={this.state.definition.length}
+              playerState={this.state.playerstate}
+              go={this.state.go}
+            />
+          </div>
+        );
+      } else {
+        return (
+          <div className="App">
+            <Link to="/" id="back">
+              Back
+            </Link>
+
+            <Countdown
+              gameo={this.gameo}
+              startbutton={this.startButton}
+              handleChange={this.handleChange}
+              textLength={this.state.definition.length}
+              playerState={this.state.playerstate}
+              go={this.state.go}
+            />
+
+            <h1>
+              {this.state.score}
+              <br />
+              point(s)
+            </h1>
+
+            <h1 id="word">Word: {this.state.word}</h1>
+            <p id="type">Lexical Category: {this.state.type}</p>
+            <br />
+
+            <WordDisplay
+              go={this.state.go}
+              word={this.state.word}
+              userInput={this.state.userInput}
+              type={this.state.type}
+              definition={this.state.definition}
+              example={this.state.example}
+            />
+
+            {/* <EndGame
+              score={this.state.score}
+              handleNewGame={this.handleNewGame}
+            /> */}
+
+            {this.state.go ? (
+              <input
+                id="userInput"
+                autoComplete="off"
+                onKeyDown={this.handleKey}
+                onChange={this.handleChange}
+                placeholder="Type the word definition here"
+                value={this.state.userInput}
+                type="text"
+              />
+            ) : (
+              <h1>Press Start To begin</h1>
+            )}
+            <button type="submit" onSubmit={this.nextWordPressed}>
+              Next Word
+            </button>
+
+            {this.state.playerState === 1 ? (
+              <h1>You have won</h1>
+            ) : this.state.playerState === 0 ? null : (
+              ""
+            )}
+          </div>
+        );
+      }
     } else {
       return (
-        <div className="App">
-          <Link to="/" id="back">
-            Back
-          </Link>
-
-          <Countdown
-            startbutton={this.startButton}
-            handleChange={this.handleChange}
-            textLength={this.state.definition.length}
-            playerState={this.state.playerstate}
-            go={this.state.go}
-          />
-
-          <h1>
-            {this.state.score}
-            <br />
-            point(s)
-          </h1>
-
-          <h1 id="word">Word: {this.state.word}</h1>
-          <p id="type">Lexical Category: {this.state.type}</p>
-          <br />
-
-          <WordDisplay
-            go={this.state.go}
-            word={this.state.word}
-            userInput={this.state.userInput}
-            type={this.state.type}
-            definition={this.state.definition}
-            example={this.state.example}
-          />
-
-          {this.state.go ? (
-            <input
-              id="userInput"
-              autoComplete="off"
-              onKeyDown={this.handleKey}
-              onChange={this.handleChange}
-              placeholder="Type the word definition here"
-              value={this.state.userInput}
-              type="text"
-            />
-          ) : (
-            <h1>Press Start To begin</h1>
-          )}
-          <button type="submit" onSubmit={this.nextWordPressed}>
-            Next Word
-          </button>
-
-          {this.state.playerState === 1 ? (
-            <h1>You have won</h1>
-          ) : this.state.playerState === 0 ? null : (
-            ""
-          )}
-        </div>
+        <EndGame score={this.state.score} handleNewGame={this.handleNewGame} />
       );
     }
   }
 }
 
-export default Gamer;
+export default withRouter(Gamer);

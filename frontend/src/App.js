@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Route, Switch } from 'react-router-dom';
-import Home from './components/home';
-import Gamer from './components/gamer';
-import User from './components/username';
-import Gameover from './components/gameover';
+import { Route, Switch, withRouter } from "react-router-dom";
+import Home from "./components/home";
+import Gamer from "./components/gamer";
+import User from "./components/username";
+import Gameover from "./components/gameover";
 
 // let headers = {
 //   "Accept": "application/json",
@@ -14,16 +14,21 @@ import Gameover from './components/gameover';
 // type word then when space is pushed is added to array
 // then arrayInput is compared with definitionArray
 class App extends Component {
-  render(){
-    return(
+  render() {
+    return (
       <Switch>
-        <Route exact path='/' component={Home}/>
-        <Route exact path='/gamer' component={Gamer}/>
-        <Route exact path='/username' component={User}/>
-        <Route exact path='/gameover' component={Gameover}/>
+        <Route exact path="/" component={Home} />
+        <Route
+          path="/gamer"
+          render={props => {
+            return <Gamer {...props} />;
+          }}
+        />
+        <Route exact path="/username" component={User} />
+        <Route exact path="/gameover" component={Gameover} />
       </Switch>
-    )
+    );
   }
 }
 
-export default App;
+export default withRouter(App);
